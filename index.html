@@ -1,0 +1,137 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Yelpstagram</title>
+
+    <style>
+
+    	body {
+  			font-family: Helvetica Neue;
+    	}
+
+    	.root {
+    		margin: 10px;
+    		display: block;
+    	}
+
+    	.feed {
+    		display: grid;
+    		grid-column-gap: 1em;
+    		max-width: 880px;
+
+    		grid-template-columns: 1fr 1fr 1fr 1fr;
+    	}
+
+		  @media screen and (max-width: 500px) {
+		  	.feed {
+		    	grid-template-columns: 1fr 1fr 1fr;
+		  	}
+		  }
+			  
+		  @media screen and (max-width: 300px) {
+		  	.feed {
+		    	grid-template-columns: 1fr 1fr;
+		  	}
+		  }
+
+    	.feed-item {
+    		width: 100%;
+    		padding: 1em 1em 0 0;
+    	}
+
+    	.feed-item .image {
+    		width: 100%;
+    	}
+
+
+    </style>
+
+  </head>
+  <body>
+
+    <div id="root">
+
+      <h1>Yelpstagram</h1>
+      <div class="feed">
+
+      	<div class="feed-item">
+      		<img class="image" src="food.jpg">
+      	</div>
+
+      	<div class="feed-item">
+      		<img class="image" src="food.jpg">
+      	</div>
+
+      	<div class="feed-item">
+      		<img class="image" src="food.jpg">
+      	</div>
+
+      	<div class="feed-item">
+      		<img class="image" src="food.jpg">
+      	</div>
+
+      	<div class="feed-item">
+      		<img class="image" src="food.jpg">
+      	</div>
+
+      	<div class="feed-item">
+      		<img class="image" src="food.jpg">
+      	</div>
+
+      	<div class="feed-item">
+      		<img class="image" src="food.jpg">
+      	</div>
+
+      	<div class="feed-item">
+      		<img class="image" src="food.jpg">
+      	</div>
+
+      	<div class="feed-item">
+      		<img class="image" src="food.jpg">
+      	</div>
+
+      	<div class="feed-item">
+      		<img class="image" src="food.jpg">
+      	</div>
+
+      	<div class="feed-item">
+      		<img class="image" src="food.jpg">
+      	</div>
+
+      	<div class="feed-item">
+      		<img class="image" src="food.jpg">
+      	</div>
+
+      </div>
+
+
+
+    </div>
+ 
+      <script>
+
+      	const token = "Bearer -mYw6wpoK3MgdCgXNKrtRP79BhpzuM6_8WZVcEjpX7DYD3CaNoqBJvsL139Qc6nNp3cYjHIvPX6Nfdh3Slqd57wHqW4ltoFSgggB2nX8zBIDDuidGYIkhhpnhx8OWXYx";
+
+      	const base_url = "https://api.yelp.com/v3/businesses/search?limit=50&categories=food,restaurants&location=";
+      	const search_term = "1441 clay st";
+      	const location_param = search_term.replace(" ", "%20");
+
+      	fetch(base_url + location_param, {
+					method: 'get',
+					headers: {
+			      'Authorization': token,
+			      'Content-Type': 'application/x-www-form-urlencoded'
+			  	}, 
+				}).then(function(response) {
+					console.log(response);
+				}).catch(function(err) {
+					console.log(err);
+				});
+
+ 
+      </script>
+
+  </body>
+</html>
